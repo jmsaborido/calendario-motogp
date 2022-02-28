@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <title>MOTO GP</title>
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+    .styled-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        font-family: 'Lato', sans-serif;
+        min-width: 400px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        text-align: center;
+
+    }
+
+    .styled-table thead tr {
+        background-color: #0A2D82;
+        color: #ffffff;
+    }
+
+    .styled-table th,
+    .styled-table td {
+        padding: 12px 15px;
+    }
+
+    .styled-table th,
+    .styled-table td {
+        padding: 12px 15px;
+    }
+
+    .styled-table th,
+    .styled-table td {
+        padding: 12px 15px;
+    }
+
+    .styled-table tbody tr {
+        border-top: thin solid #dddddd;
+    }
+
+    .styled-table tbody tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+    }
+
+    .styled-table tbody tr:last-of-type {
+        border-bottom: thin solid #0A2D82;
+    }
+
+    .dia {
+        background-color: #0A2D82;
+        border-top: thin solid;
+        color: #ffffff;
+    }
+
+    .carrera {
+        background-color: #0A2D82;
+        border-bottom: thin solid;
+        color: #ffffff;
+    }
+</style>
+
+<body>
+
+    <table class="styled-table"
+        id="myTable">
+        <thead>
+            <tr>
+                <td class="carrera"
+                    align="center"
+                    colspan="2">
+                    <span id="nombre">
+                        QATAR 2022 04-06 MARZO
+                    </span>
+            </tr>
+            <tr>
+                <td><strong>Sesión</strong></td>
+                <td><strong>Hora</strong></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="dia"
+                    align="center"
+                    colspan="2">
+                    <span>
+                        VIERNES
+                    </span>
+            </tr>
+            <tr>
+                <td>FP1 MOTO 3</td>
+                <td><span>09:50</span></td>
+            </tr>
+            <tr>
+                <td>FP1 MOTO 2</td>
+                <td><span>10:45</span></td>
+            </tr>
+            <tr>
+                <td>FP1 MOTO GP</td>
+                <td><span>11:40</span></td>
+            </tr>
+            <tr>
+                <td>FP2 MOTO 3</td>
+                <td><span>14:10</span></td>
+            </tr>
+            <tr>
+                <td>FP2 MOTO 2</td>
+                <td><span>15:05</span></td>
+            </tr>
+            <tr>
+                <td>FP2 MOTO GP</td>
+                <td><span>16:00</span></td>
+            </tr>
+            <tr>
+                <td class="dia"
+                    align="center"
+                    colspan="2">
+                    <span>
+                        SÁBADO
+                    </span>
+            </tr>
+            <tr>
+                <td>FP3 MOTO 3</td>
+                <td><span>09:25</span></td>
+            </tr>
+            <tr>
+                <td>FP3 MOTO 2</td>
+                <td><span>10:20</span></td>
+            </tr>
+            <tr>
+                <td>FP3 MOTO GP</td>
+                <td><span>11:15</span></td>
+            </tr>
+            <tr>
+                <td>CLASIFICACIÓN MOTO 3</td>
+                <td><span>13:30</span></td>
+            </tr>
+            <tr>
+                <td>CLASIFICACIÓN MOTO 2</td>
+                <td><span>14:25</span></td>
+            </tr>
+            <tr>
+                <td>FP4 MOTO GP</td>
+                <td><span>15:20</span></td>
+            </tr>
+            <tr>
+                <td>CLASIFICACIÓN MOTO GP</td>
+                <td><span>16:00</span></td>
+            </tr>
+            <tr>
+                <td class="dia"
+                    align="center"
+                    colspan="2">
+                    <span>
+                        DOMINGO
+                    </span>
+            </tr>
+            <tr>
+                <td>WARMUP MOTO 3</td>
+                <td><span>11:00</span></td>
+            </tr>
+            <tr>
+                <td>WARMUP MOTO 2</td>
+                <td><span>11:20</span></td>
+            </tr>
+            <tr>
+                <td>WARMUP MOTO GP</td>
+                <td><span>11:40</span></td>
+            </tr>
+            <tr>
+                <td>CARRERA MOTO 3</td>
+                <td><span>13:00</span></td>
+            </tr>
+            <tr>
+                <td>CARRERA MOTO 2</td>
+                <td><span>14:20</span></td>
+            </tr>
+            <tr>
+                <td>CARRERA MOTO GP</td>
+                <td><span>16:00</span></td>
+            </tr>
+
+
+        </tbody>
+
+    </table>
+
+    <button id="convert">
+        Descargar imagen
+    </button>
+
+    <div id="result">
+        <!-- Result will appear be here -->
+    </div>
+
+
+    <script type="text/javascript"
+        src="https://github.com/niklasvh/html2canvas/releases/download/0.5.0-alpha1/html2canvas.js"></script>
+    <script>
+        //convert table to image
+        function convertToImage() {
+            var resultDiv = document.getElementById("result");
+            html2canvas(document.getElementById("myTable"), {
+                onrendered: function (canvas) {
+                    var nombre = document.getElementById('nombre').innerHTML.trim();
+                    var img = canvas.toDataURL("image/png");
+                    result.innerHTML = '<a id="descargar" download="' + nombre + '.jpeg" href="' + img + '">' + nombre + '</a>';
+                    document.getElementById("descargar").click();
+                    document.getElementById("descargar").remove();
+                }
+            });
+        }
+        //click event
+        var convertBtn = document.getElementById("convert");
+        convertBtn.addEventListener('click', convertToImage);
+    </script>
+</body>
+
+</html>
